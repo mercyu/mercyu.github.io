@@ -84,7 +84,7 @@ function getPrices() {
 
 // Назначаем обработчик поля ввода.
 let counter=document.getElementById("count");
-counter.addEventListener("change",function(event){
+counter.addEventListener("click",()=>{
 let b=event.target;
 console.log(b.value);
 updatePrice();
