@@ -60,7 +60,7 @@ function getPrices() {
     select.addEventListener("change", function(event) {
       let target = event.target;
       console.log(target.value);
-      totalPrice.innerHTML=0+" рублей";
+      count.innerHTML=0;
    
     
     // Назначаем обработчик радиокнопок.  
@@ -70,6 +70,11 @@ function getPrices() {
         let r = event.target;
         console.log(r.value);
         updatePrice();
+        let counter=document.getElementById("count");
+counter.addEventListener("input",()=>{
+updatePrice();
+});
+
       });
     });
   
@@ -80,16 +85,13 @@ function getPrices() {
         console.log(c.name);
         console.log(c.value);
         updatePrice();
+        let counter=document.getElementById("count");
+counter.addEventListener("input",()=>{
+updatePrice();
+});
       });
 
 // Назначаем обработчик поля ввода.
-let counter=document.getElementById("count");
-counter.addEventListener("click",()=>{
-let b=event.target;
-console.log(b.value);
-updatePrice();
-});
-
     updatePrice();
   });
    });
