@@ -2,8 +2,6 @@ function updatePrice() {
     let s = document.getElementsByName("types");
     let select = s[0];
     let price = 0;
-    let currPrice1=0;
-    let currPrice2=0;
     let prices = getPrices();
     let priceIndex = parseInt(select.value) - 1;
     if (priceIndex >= 0) {
@@ -27,7 +25,7 @@ function updatePrice() {
   checkDiv.hidden = (select.value == "3" ? false : true);
      // Проверяем, выполнено ли свойство
     if (checkbox.checked) {
-      let propPrice = prices.property.prop;
+      let propPrice = prices.property[checkbox.prop];
       if (propPrice !== undefined) {
         price += propPrice;
       }
