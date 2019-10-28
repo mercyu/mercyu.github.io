@@ -60,8 +60,8 @@ function getPrices() {
     select.addEventListener("change", function(event) {
       let target = event.target;
       console.log(target.value);
-      updatePrice();
-    });
+      totalPrice.innerHTML=0+" рублей";
+   
     
     // Назначаем обработчик радиокнопок.  
     let radios = document.getElementsByName("options");
@@ -92,4 +92,4 @@ updatePrice();
 
     updatePrice();
   });
-  
+   });
