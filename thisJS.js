@@ -29,7 +29,7 @@ function updatePrice() {
         price += propPrice;
       }
     }
-  let currentCount=document.getElementById("count");
+  let currentCount=+document.getElementById("count").value;
   price*=currentCount;
   let totalPrice = document.getElementById("totalPrice");
   totalPrice.innerHTML = price + " рублей";
@@ -61,7 +61,7 @@ function getPrices() {
       let target = event.target;
       console.log(target.value);
       updatePrice();
-   
+    });
     
     // Назначаем обработчик радиокнопок.  
     let radios = document.getElementsByName("options");
@@ -92,4 +92,4 @@ updatePrice();
 
     updatePrice();
   });
-   });
+  
