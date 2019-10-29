@@ -6,6 +6,10 @@ function updatePrice() {
     let currprice2=0;
     let prices = getPrices();
     let priceIndex = parseInt(select.value) - 1;
+    let counter=+document.getElementById("count").value;
+    counter=0;
+    let pr = document.getElementById("totalPrice");
+    pr.innerHTML=0+" рублей";
     if (priceIndex >= 0) {
       price = prices.types[priceIndex];
     }
@@ -15,14 +19,12 @@ function updatePrice() {
     // Смотрим, какая опция выбрана
     let radios = document.getElementsByName("options");
     radios.forEach(function(radio) { 
-      let pr = document.getElementById("totalPrice");
       if (radio.checked) {
         let optionPrice = prices.options[radio.value];
         if (optionPrice !== undefined) {
-          currprice1 += optionPrice;
-        }pr.innerHTML=currprice1+" рублей";
-      }    
-                              
+          price += optionPrice;
+        }
+      }                     
     });
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkbox");
@@ -30,16 +32,14 @@ function updatePrice() {
      // Проверяем, выполнено ли свойство
      let checkboxes = document.querySelectorALL("#checkbox input");
   checkboxes.forEach(function(checkbox) {
-    let pr = document.getElementById("totalPrice");
     if (checkbox.checked) {
       let propPrice = prices.property[checkbox.name];
       if (propPrice !== undefined) {
-        currprice2 += propPrice;
-      } pr.innerHTML=currprice2+" рублей";
+        price += propPrice;
+      } 
     }
   });
-  if(currprice1>0)  price=currprice1;
-  else price=currprice2;
+
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
   price*=Counter;
