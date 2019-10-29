@@ -28,15 +28,16 @@ function updatePrice() {
     });}
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkbox");
-  checkDiv.hidden = (select.value == "3" ? false : true);
+    let ff;
+  checkDiv.hidden = (select.value == "3" ?ff=false : true);
      // Проверяем, выполнено ли свойство
-     let checkboxes = document.getElementsByName("prop")[0];
+     if(!ff){//let checkboxes = document.getElementsByName("prop")[0];
     if (checkbox.checked) {
       let propPrice = prices.property[checkbox.name];
       if (propPrice !== undefined) {
         price += propPrice;
       } 
-    };
+    };}
 
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
