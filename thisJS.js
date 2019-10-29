@@ -9,6 +9,11 @@ function updatePrice() {
     if (priceIndex >= 0) {
       price = prices.types[priceIndex];
     }
+    let checkboxes = document.querySelectorAll("#checkboxes input");
+    checkboxes.forEach(function(checkbox){
+    if(priceIndex<2) checkbox.checked=false;
+  });
+
     let pr = document.getElementById("totalPrice");
     pr.innerHTML=price+" рублей";
     // Скрываем или показываем радиокнопки
@@ -37,7 +42,7 @@ function updatePrice() {
         price += propPrice;
       }
      }
-     checkbox.checked=false;
+    
   });
 
   let Counter=+document.getElementById("count").value;
@@ -99,7 +104,7 @@ function getPrices() {
         });
       });
     
-        // Назначаем обработчик чекбоксу.  
+        /* Назначаем обработчик чекбоксу.  
         let count = document.querySelectorAll("#totalPrice input");
         checkboxes.forEach(function(textarea) {
           textarea.addEventListener("input", function(event) {
@@ -108,6 +113,6 @@ function getPrices() {
             updatePrice();
           });
         });
-      
+      */
       updatePrice();
     });
