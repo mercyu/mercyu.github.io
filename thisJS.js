@@ -4,20 +4,18 @@ function updatePrice() {
     let price = 0;
     let currprice1=0;
     let currprice2=0;
-    
-    let pr = document.getElementById("totalPrice");
-    pr.innerHTML=0+" рублей";
     let prices = getPrices();
     let priceIndex = parseInt(select.value) - 1;
     if (priceIndex >= 0) {
       price = prices.types[priceIndex];
     }
+    let pr = document.getElementById("totalPrice");
+    pr.innerHTML=price+" рублей";
     // Скрываем или показываем радиокнопки
     let radioDiv = document.getElementById("radios");
-    let f;
-    radioDiv.hidden = (select.value == "2" ?  f=false : true);
+    radioDiv.hidden = (select.value == "2" ? false : true);
     // Смотрим, какая опция выбрана
-    if(!f){let radios = document.getElementsByName("options");
+    {let radios = document.getElementsByName("options");
     radios.forEach(function(radio) { 
       if (radio.checked) {
         let optionPrice = prices.options[radio.value];
@@ -25,19 +23,18 @@ function updatePrice() {
           price += optionPrice;
         }
       }                     
-    });}
+    });
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkbox");
-    let ff;
-  checkDiv.hidden = (select.value == "3" ?ff=false : true);
+  checkDiv.hidden = (select.value == "3" ? false : true);
      // Проверяем, выполнено ли свойство
-     if(!ff){//let checkboxes = document.getElementsByName("prop")[0];
+     //let checkboxes = document.getElementsByName("prop")[0];
     if (checkbox.checked) {
       let propPrice = prices.property[checkbox.name];
       if (propPrice !== undefined) {
         price += propPrice;
       } 
-    };}
+    };
 
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
