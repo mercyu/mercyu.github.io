@@ -9,10 +9,11 @@ function updatePrice() {
     if (priceIndex >= 0) {
       price = prices.types[priceIndex];
     }
+    if(priceIndex<2){
     let checkboxes = document.querySelectorAll("#checkboxes input");
     checkboxes.forEach(function(checkbox){
-    if(priceIndex<2) checkbox.checked=false;
-  });
+     checkbox.checked=false;
+  });};
 
     let pr = document.getElementById("totalPrice");
     pr.innerHTML=price+" рублей";
