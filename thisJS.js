@@ -22,7 +22,8 @@ function updatePrice() {
         if (optionPrice !== undefined) {
           price += optionPrice;
         }
-      }                     
+      } 
+                          
     });
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkboxes");
@@ -35,7 +36,8 @@ function updatePrice() {
       if (propPrice !== undefined) {
         price += propPrice;
       }
-    }
+     }
+     checkbox.checked=false;
   });
 
   let Counter=+document.getElementById("count").value;
@@ -97,5 +99,15 @@ function getPrices() {
         });
       });
     
+        // Назначаем обработчик чекбоксу.  
+        let count = document.querySelectorAll("#totalPrice input");
+        checkboxes.forEach(function(textarea) {
+          textarea.addEventListener("input", function(event) {
+            let c = event.target;
+            console.log(c.value);
+            updatePrice();
+          });
+        });
+      
       updatePrice();
     });
