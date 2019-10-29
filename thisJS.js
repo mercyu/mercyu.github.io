@@ -18,20 +18,24 @@ function updatePrice() {
         if (optionPrice !== undefined) {
           price += optionPrice;
         }
-      }                                  
+      }    
+      let pr = document.getElementById("totalPrice"); 
+      pr.innerHTML=price+" рублей";                        
     });
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkbox");
   checkDiv.hidden = (select.value == "3" ? false : true);
      // Проверяем, выполнено ли свойство
-     let checkboxes = document.querySelectorAll("#checkbox input");
+     let checkboxes = document.querySelector("#checkbox input");
   checkboxes.forEach(function(checkbox) {
     if (checkbox.checked) {
-      let propPrice = prices.prodProperties[checkbox.name];
+      let propPrice = prices.property[checkbox.name];
       if (propPrice !== undefined) {
         price += propPrice;
       }
     }
+    let pr = document.getElementById("totalPrice"); 
+      pr.innerHTML=price+" рублей"; 
   });
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
