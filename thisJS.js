@@ -24,12 +24,15 @@ function updatePrice() {
     let checkDiv = document.getElementById("checkbox");
   checkDiv.hidden = (select.value == "3" ? false : true);
      // Проверяем, выполнено ли свойство
+     let checkboxes = document.querySelectorAll("#checkbox input");
+  checkboxes.forEach(function(checkbox) {
     if (checkbox.checked) {
-      let propPrice = prices.property[checkbox.prop];
+      let propPrice = prices.prodProperties[checkbox.name];
       if (propPrice !== undefined) {
         price += propPrice;
       }
     }
+  });
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
   price*=Counter;
