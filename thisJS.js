@@ -25,16 +25,18 @@ function updatePrice() {
       }                     
     });
      // Скрываем или показываем чекбокс
-    let checkDiv = document.getElementById("checkbox");
+    let checkDiv = document.getElementById("checkboxes");
   checkDiv.hidden = (select.value == "3" ? false : true);
      // Проверяем, выполнено ли свойство
-     //let checkboxes = document.getElementsByName("prop")[0];
+     let checkboxes = document.querySelectorAll("#checkboxes input");
+  checkboxes.forEach(function(checkbox) {
     if (checkbox.checked) {
-      let propPrice = prices.property[checkbox.name];
+      let propPrice = prices.properties[checkbox.name];
       if (propPrice !== undefined) {
         price += propPrice;
-      } 
-    };
+      }
+    }
+  });
 
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
@@ -51,8 +53,9 @@ function getPrices() {
         option2: 100,
         option3: 200,
       },
-      property: {
-        prop: 200,
+      properties: {
+        prop1:100,
+        prop2: 200,
       }
     };
   }
@@ -61,7 +64,7 @@ function getPrices() {
     // Скрываем радиокнопки и чекбокс.
     let radioDiv = document.getElementById("radios");
     radioDiv.hidden = true;
-    let checkDiv= document.getElementById("checkbox");
+    let checkDiv= document.getElementById("checkboxes");
     checkDiv.hidden=true;
     
     let s = document.getElementsByName("types");
@@ -84,7 +87,7 @@ function getPrices() {
       });
     
         // Назначаем обработчик чекбоксу.  
-      let checkboxes = document.querySelectorAll("#checkbox input");
+      let checkboxes = document.querySelectorAll("#checkboxes input");
       checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener("change", function(event) {
           let c = event.target;
