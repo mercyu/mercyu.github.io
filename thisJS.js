@@ -54,8 +54,8 @@ function getPrices() {
         option3: 200,
       },
       properties: {
-        prop1:100,
-        prop2: 200,
+        prop1:50,
+        prop2: 150,
       }
     };
   }
