@@ -15,7 +15,7 @@ function updatePrice() {
     let radioDiv = document.getElementById("radios");
     radioDiv.hidden = (select.value == "2" ? false : true);
     // Смотрим, какая опция выбрана
-    {let radios = document.getElementsByName("options");
+    let radios = document.getElementsByName("options");
     radios.forEach(function(radio) { 
       if (radio.checked) {
         let optionPrice = prices.options[radio.value];
@@ -96,4 +96,3 @@ function getPrices() {
     
       updatePrice();
     });
-  }
