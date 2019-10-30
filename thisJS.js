@@ -27,8 +27,10 @@ function updatePrice() {
         if (optionPrice !== undefined) {
           price += optionPrice;
         }
-      }                
+      }
+     
     });
+
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkboxes");
   checkDiv.hidden = (select.value == "3" ? false : true);
@@ -37,9 +39,10 @@ function updatePrice() {
   checkboxes.forEach(function(checkbox) {
     if (checkbox.checked) {
       let propPrice = prices.properties[checkbox.name];
-      if (propPrice !== undefined) {
+      if (propPrice !== undefined && (price<(prices.types[priceIndex]+prices.properties[checkbox.name]))) {
         price += propPrice;
       }
+      else price=prices.types[priceIndex];
      }
   });
 
@@ -102,5 +105,12 @@ function getPrices() {
         });
       });
     
+      let count = document.getElementById("count");
+      count.oninput=function(event){
+        let t=event.target;
+        console.log(t.value);
+        updatePrice();
+      };
+
       updatePrice();
     });
