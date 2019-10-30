@@ -22,21 +22,6 @@ function updatePrice() {
       });
     }
 
-    // Скрываем или показываем радиокнопки
-    let radioDiv = document.getElementById("radios");
-    radioDiv.hidden = (select.value == "2" ? false : true);
-    // Смотрим, какая опция выбрана
-    let radios = document.getElementsByName("options");
-    radios.forEach(function(radio) { 
-      if (radio.checked) {
-        let optionPrice = prices.options[radio.value];
-        if (optionPrice !== undefined) {
-          price += optionPrice;
-        }
-      }
-     
-    });
-
      // Скрываем или показываем чекбокс
     let checkDiv = document.getElementById("checkboxes");
   checkDiv.hidden = (select.value == "3" ? false : true);
@@ -52,6 +37,20 @@ function updatePrice() {
      }
   });
 
+    // Скрываем или показываем радиокнопки
+    let radioDiv = document.getElementById("radios");
+    radioDiv.hidden = (select.value == "2" ? false : true);
+    // Смотрим, какая опция выбрана
+    let radios = document.getElementsByName("options");
+    radios.forEach(function(radio) { 
+      if (radio.checked) {
+        let optionPrice = prices.options[radio.value];
+        if (optionPrice !== undefined) {
+          price += optionPrice;
+        }
+      }
+    });
+    
   let Counter=+document.getElementById("count").value;
   if(Counter!==undefined)
   price*=Counter;
