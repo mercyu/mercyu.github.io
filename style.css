@@ -1,8 +1,13 @@
+@media (max-width: 370px) {
+#logo{
+    display: none;
+}
+}
 @media (max-width: 768px) {
     body{
         font-size: 12px;
     }
-#logo{
+    #logo{
         width:80px;
         height:80px;
     }
