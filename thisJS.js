@@ -15,6 +15,12 @@ function updatePrice() {
      checkbox.checked=false;
      });
     }
+    if(priceIndex!=1){
+      let radios=document.getElementsByName("options");
+      radios.forEach(function(radio){
+        radio.checked=false;
+      });
+    }
 
     // Скрываем или показываем радиокнопки
     let radioDiv = document.getElementById("radios");
@@ -39,7 +45,7 @@ function updatePrice() {
   checkboxes.forEach(function(checkbox) {
     if (checkbox.checked) {
       let propPrice = prices.properties[checkbox.name];
-      if (propPrice !== undefined && (price<(prices.types[priceIndex]+prices.properties[checkbox.name]))) {
+      if (propPrice !== undefined) {
         price += propPrice;
       }
       else price=prices.types[priceIndex];
