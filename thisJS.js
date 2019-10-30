@@ -16,8 +16,6 @@ function updatePrice() {
      });
     }
 
-    let pr = document.getElementById("totalPrice");
-    pr.innerHTML=price+" рублей";
     // Скрываем или показываем радиокнопки
     let radioDiv = document.getElementById("radios");
     radioDiv.hidden = (select.value == "2" ? false : true);
