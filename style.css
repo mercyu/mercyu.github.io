@@ -1,7 +1,10 @@
 @media (max-width: 370px) {
-#logo{
+    #logo{
     display: none;
-}
+    }
+    .header{
+    height:60px;
+    }   
 }
 @media (max-width: 768px) {
     body{
