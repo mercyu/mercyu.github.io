@@ -2,8 +2,6 @@ function updatePrice() {
     let s = document.getElementsByName("types");
     let select = s[0];
     let price = 0;
-    let currprice1=0;
-    let currprice2=0;
     let prices = getPrices();
     let priceIndex = parseInt(select.value) - 1;
     if (priceIndex >= 0) {
@@ -109,7 +107,7 @@ function getPrices() {
           updatePrice();
         });
       });
-    
+    // Назначаем обработчик текстовому полю.
       let count = document.getElementById("count");
       count.oninput=function(event){
         let t=event.target;
